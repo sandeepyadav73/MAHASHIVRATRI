@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Tiro+Devanagari+Hindi&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.8s ease;
+}
+
+/* --- 🎨 5 MODERN COLOR THEMES --- */
+body[data-theme="saffron"] { background: linear-gradient(135deg, #ff9966, #ff5e62); }
+body[data-theme="blue"] { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+body[data-theme="green"] { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+body[data-theme="purple"] { background: linear-gradient(135deg, #cc2b5e, #753a88); }
+body[data-theme="pink"] { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+body[data-theme="dark"] { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+
+/* --- GLASSMORPHISM UI --- */
+.glass-effect, .glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    z-index: 2; /* Content upar rahega */
+    position: relative;
+}
+
+.glass-card { transition: transform 0.3s ease, background 0.3s ease; }
+.glass-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.3); }
+
+/* --- IMAGE MERGING (MASKING) --- */
+.shiva-img-container {
+    padding: 10px;
+    display: inline-block;
+}
+
+.shiva-img {
+    width: 280px;
+    max-width: 100%;
+    /* Magic to merge background */
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 95%);
+    object-fit: cover;
+}
+
+/* --- ANIMATIONS --- */
+.floating-anim {
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Om Rain Animation */
+.om-particle {
+    position: fixed;
+    top: -50px;
+    color: rgba(255, 255, 255, 0.3); /* Translucent White */
+    z-index: 1; /* Background ke upar, content ke neeche */
+    pointer-events: none;
+    font-family: 'Tiro Devanagari Hindi', serif;
+    font-weight: bold;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Gradient Text */
+/* Gradient Text Style */
+.gradient-text {
+    /* Gradient Background */
+    background: linear-gradient(to right, #fff, #ffeeb0);
+    
+    /* Standard & Vendor Prefixed Background Clip */
+    -webkit-background-clip: text; /* Safari, Chrome, Old Browsers */
+    background-clip: text;         /* Standard Firefox, Modern Browsers */
+    
+    /* Text Fill Color */
+    -webkit-text-fill-color: transparent;
+    
+    /* Optional Shadow */
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    
+    font-weight: 800;
+}
+
+/* Buttons */
+.btn-gradient {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    border: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.btn-gradient:hover { background: #fff; transform: scale(1.05); }
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .glass-card { margin-bottom: 20px; }
+}
